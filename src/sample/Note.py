@@ -18,3 +18,4 @@ class Note:
     @property
     def get_note(self):
         return self.note
+
