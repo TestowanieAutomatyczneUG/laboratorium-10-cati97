@@ -26,6 +26,11 @@ class TestNote(unittest.TestCase):
         self.assertRaises(ZeroDivisionError, self.note_service.averageOf, "chemistry")
 
     @patch.object(NotesStorage, "getAllNotesOf")
+    def test_average_name_incorrect(self, mock_method):
+        mock_method.return_value = [Note("biology", 5), Note("biology", 4)]
+        self.assertRaises(ValueError, self.note_service.averageOf, "chemistry")
+
+    @patch.object(NotesStorage, "getAllNotesOf")
     def test_clear(self, mock_method):
         mock_method.return_value = [Note("chemistry", 5), Note("chemistry", 4)]
         self.note_service.clear()
