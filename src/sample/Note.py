@@ -1,5 +1,5 @@
 class Note:
-    def __int__(self, name, note):
+    def __init__(self, name, note):
         if name is not None or name != "":
             self.name = name
         else:
@@ -9,8 +9,10 @@ class Note:
         else:
             raise ValueError("Note not in range")
 
+    @property
     def get_name(self):
         return self.name
 
+    @property
     def get_note(self):
         return self.note
