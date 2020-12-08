@@ -2,6 +2,8 @@ class Note:
     def __init__(self, name, note):
         if name is None:
             raise ValueError("Name cannot be none")
+        elif name == "":
+            raise ValueError("Name cannot be empty")
         else:
             self.name = name
         if 2 <= note <= 6:
