@@ -21,5 +21,8 @@ class TestNote(unittest.TestCase):
     def test_note_out_of_range_1(self):
         self.assertRaises(ValueError, Note, "kolokwium", 1)
 
+    def test_note_out_of_range_7(self):
+        self.assertRaises(ValueError, Note, "kolokwium", 7)
+
     def tearDown(self) -> None:
         self.note = Note
