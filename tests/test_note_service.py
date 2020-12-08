@@ -24,3 +24,10 @@ class TestNote(unittest.TestCase):
     def test_average_no_notes_exception(self, mock_method):
         mock_method.return_value = []
         self.assertRaises(ZeroDivisionError, self.note_service.averageOf, "chemistry")
+
+    @patch.object(NotesStorage, "getAllNotesOf")
+    def test_clear(self, mock_method):
+        mock_method.return_value = [Note("chemistry", 5), Note("chemistry", 4)]
+        self.note_service.clear()
+        mock_method.return_value = []
+        self.assertEqual(self.note_service.notes_storage.getAllNotesOf("chemistry"), [])
