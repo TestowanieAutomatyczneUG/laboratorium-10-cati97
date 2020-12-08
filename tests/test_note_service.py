@@ -12,5 +12,7 @@ class TestNote(unittest.TestCase):
     @patch.object(NotesStorage, "getAllNotesOf")
     def test_add_note(self, mock_method):
         mock_method.return_value = [Note("chemistry", 5)]
-        result = self.note_service.add(Note("chemistry", 5))
-        self.assertEqual(self.note_service.averageOf("chemistry"), 5)
+        self.note_service.add(Note("chemistry", 5))
+        self.assertEqual(self.note_service.notes_storage.getAllNotesOf("chemistry")[0].note, 5)
+
+    
