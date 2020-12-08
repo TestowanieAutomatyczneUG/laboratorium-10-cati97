@@ -1,9 +1,9 @@
 class Note:
     def __init__(self, name, note):
-        if name is not None or name != "":
-            self.name = name
-        else:
+        if name is None:
             raise ValueError("Name cannot be none")
+        else:
+            self.name = name
         if 2 <= note <= 6:
             self.note = note
         else:
