@@ -6,7 +6,7 @@ class Note:
             raise ValueError("Name cannot be empty")
         else:
             self.name = name
-        if 2 <= note <= 6:
+        if note in [2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6]:
             self.note = note
         else:
             raise ValueError("Note not in range")
