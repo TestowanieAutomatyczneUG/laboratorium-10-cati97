@@ -12,7 +12,7 @@ class NotesService:
         all_notes = self.notes_storage.getAllNotesOf(name)
         suma = 0
         for note in all_notes:
-            suma += note
+            suma += note.note
         return suma/len(all_notes)
 
     def clear(self):
